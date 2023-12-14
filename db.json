@@ -1,0 +1,6 @@
+[
+  { "id": 0, "city": "seoul", "img": "/contents/seoul.png" },
+  { "id": 1, "city": "new york", "img": "/contents/newyork.png" },
+  { "id": 2, "city": "tokyo", "img": "/contents/tokyo.png" },
+  { "id": 3, "city": "beijing", "img": "/contents/beijing.png" }
+]
