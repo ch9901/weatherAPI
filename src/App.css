@@ -30,6 +30,9 @@
   height: 100%;
   font-family: "GmarketSans300";
   padding: 65px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .SelectCity .selectcity-tit {
@@ -68,4 +71,24 @@
   background: rgba(255, 255, 255, 0.8);
   font-family: "GmarketSans700";
   color: #333;
+}
+.datashow-tit {
+  font-size: 20px;
+  color: #fff;
+  position: relative;
+}
+.datashow-tit::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  background: #fff;
+  width: 100%;
+  height: 0.5px;
+}
+
+.DataDetail {
+}
+.datalist {
+  margin-bottom: 10px;
+  color: #fff;
 }

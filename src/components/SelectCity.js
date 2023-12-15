@@ -1,15 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const SelectCity = () => {
   const dispatch = useDispatch();
   const city = useSelector((state) => state.jsondata);
+  const selectcity = useSelector((state) => state.selectcity);
   const buttonOnClick = (e) => {
     const clickedButton = e.target;
     clickedButton.classList.add("selected");
-    dispatch({ type: "SELECT_CITY", payload: { clickedButton } });
+    dispatch({
+      type: "SELECT_CITY",
+      payload: { selectcity: clickedButton.innerText },
+    });
   };
 
   return (
