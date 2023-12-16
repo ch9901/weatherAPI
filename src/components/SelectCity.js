@@ -13,7 +13,7 @@ const SelectCity = () => {
       payload: { selectcity: clickedButton.innerText },
     });
   };
-
+  console.log(selectcity);
   return (
     <div className="SelectCity">
       <h1 className="selectcity-tit">Select City</h1>

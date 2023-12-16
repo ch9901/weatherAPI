@@ -24,11 +24,13 @@ function App() {
       getWeatherByCurrentLocation(lat, lon);
     });
   };
+  getCurrentLocation();
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
+    dispatch({ type: "WEATHER_API_DATA", payload: { weatherApiData: data } });
   };
 
   ///////////////////찬영아여기부터해라 그리고 버튼누르면 json 못가져오는거 확인해서 오류 수정해라

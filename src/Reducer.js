@@ -1,4 +1,4 @@
-const initialState = {};
+const initialState = { selectcity: "Current Location" };
 
 function Reducer(state = initialState, action) {
   const { type, payload } = action;
@@ -7,6 +7,8 @@ function Reducer(state = initialState, action) {
       return { ...state, jsondata: payload.jsondata };
     case "SELECT_CITY":
       return { ...state, selectcity: payload.selectcity };
+    case "WEATHER_API_DATA":
+      return { ...state, weatherApiData: payload.weatherApiData };
   }
 }
 
