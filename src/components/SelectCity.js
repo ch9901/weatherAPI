@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 const SelectCity = () => {
   const dispatch = useDispatch();
-  const city = useSelector((state) => state.jsondata);
-  const selectcity = useSelector((state) => state.selectcity);
+  const city = useSelector((state) => state?.jsondata);
+  const selectcity = useSelector((state) => state?.selectcity);
   const buttonOnClick = (e) => {
     const clickedButton = e.target;
     clickedButton.classList.add("selected");
@@ -13,7 +13,6 @@ const SelectCity = () => {
       payload: { selectcity: clickedButton.innerText },
     });
   };
-  console.log(selectcity);
   return (
     <div className="SelectCity">
       <h1 className="selectcity-tit">Select City</h1>

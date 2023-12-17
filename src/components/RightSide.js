@@ -2,10 +2,10 @@ import React from "react";
 import SelectCity from "./SelectCity";
 import DataShow from "./DataShow";
 
-const RightSide = () => {
+const RightSide = (handleCityChange) => {
   return (
     <div className="RightSide">
-      <SelectCity />
+      <SelectCity SelectCity={handleCityChange} />
       <DataShow />
     </div>
   );

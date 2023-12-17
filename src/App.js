@@ -9,8 +9,9 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const selectcity = useSelector((state) => state?.selectcity);
   const dispatch = useDispatch();
-  const selectcity = useSelector((state) => state.selectcity);
+
   const city = async () => {
     const response = await fetch("http://localhost:3004/city");
     const data = await response.json();
@@ -31,9 +32,8 @@ function App() {
     let data = await response.json();
     console.log(data);
     dispatch({ type: "WEATHER_API_DATA", payload: { weatherApiData: data } });
-    // setLoading(false);
+    setLoading(false);
   };
-
   const getWeatherByCity = async () => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${selectcity}&appid=${API_KEY}&units=metric`;
     let response = await fetch(url);
@@ -47,18 +47,18 @@ function App() {
     getCurrentLocation();
   }, []);
 
-  /////
   useEffect(() => {
-    if (selectcity === "") {
+    if (
+      selectcity === "Current Location" ||
+      selectcity === "" ||
+      selectcity === undefined
+    ) {
       getCurrentLocation();
     } else {
       getWeatherByCity();
     }
   }, [selectcity]);
 
-  const handleCityChange=(selectcity)=>{
-if(selectcity==="")
-  }
   return (
     <div>
       {loading ? (

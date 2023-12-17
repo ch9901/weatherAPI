@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const DataDetail = () => {
-  const weatherApiData = useSelector((state) => state.weatherApiData);
-  const maxTemp = weatherApiData.main.temp_max;
-  const minTemp = weatherApiData.main.temp_min;
-  const currentTemp = weatherApiData.main.temp;
+  const weatherApiData = useSelector((state) => state?.weatherApiData);
+  const maxTemp = weatherApiData?.main.temp_max;
+  const minTemp = weatherApiData?.main.temp_min;
+  const currentTemp = weatherApiData?.main.temp;
   const humidity = weatherApiData?.main.humidity;
-  const wind = weatherApiData.wind.speed;
+  const wind = weatherApiData?.wind.speed;
 
   return (
     <div className="DataDetail">
