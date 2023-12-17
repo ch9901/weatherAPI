@@ -13,7 +13,7 @@ export const DataDetail = () => {
     <div className="DataDetail">
       <div className="datalist">
         <span className="data-tit">Current Temp</span>
-        <span className="data-result">{currentTemp}</span>
+        <span className="data-result">{currentTemp}°C</span>
       </div>
       <div className="datalist">
         <span className="data-tit">Max/Min Temp</span>

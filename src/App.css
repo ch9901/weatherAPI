@@ -3,11 +3,22 @@
 .container {
   width: 100%;
   height: 100vh;
-  border: 1px solid #000;
   background: url(./contents/seoul.png) no-repeat;
   background-size: cover;
   display: flex;
   justify-content: space-between;
+}
+.container.seoul {
+  background: url(./contents/seoul.png) no-repeat;
+}
+.container.newyork {
+  background: url(./contents/newyork.png) no-repeat;
+}
+.container.tokyo {
+  background: url(./contents/tokyo.png) no-repeat;
+}
+.container.beijing {
+  background: url(./contents/beijing.png) no-repeat;
 }
 .container_yetload {
   display: flex;
@@ -92,4 +103,22 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
+}
+.LeftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.LocationDegree {
+  padding: 40px 50px;
+  color: #fff;
+  font-family: "Baloo", sans-serif;
+}
+.LD-selectcity-tit {
+  font-size: 50px;
+  text-transform: capitalize;
+}
+.LD-selectcity-degree {
+  font-size: 100px;
 }

@@ -1,7 +1,7 @@
 import "./App.css";
 import LeftSide from "./components/LeftSide";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ClipLoader } from "react-spinners";
 import RightSide from "./components/RightSide";
 
@@ -11,6 +11,36 @@ function App() {
   const [loading, setLoading] = useState(true);
   const selectcity = useSelector((state) => state?.selectcity);
   const dispatch = useDispatch();
+
+  const container = useRef();
+  const changeBgImg = () => {
+    switch (selectcity) {
+      case "seoul":
+        container.classList.add("seoul");
+        container.classList.remove("newyork");
+        container.classList.remove("tokyo");
+        container.classList.remove("beijing");
+        break;
+      case "new york":
+        container.classList.add("newyork");
+        container.classList.remove("seoul");
+        container.classList.remove("tokyo");
+        container.classList.remove("beijing");
+        break;
+      case "tokyo":
+        container.classList.add("tokyo");
+        container.classList.remove("seoul");
+        container.classList.remove("newyork");
+        container.classList.remove("beijing");
+        break;
+      case "beijing":
+        container.classList.add("beijing");
+        container.classList.remove("seoul");
+        container.classList.remove("newyork");
+        container.classList.remove("tokyo");
+        break;
+    }
+  };
 
   const city = async () => {
     const response = await fetch("http://localhost:3004/city");
@@ -30,7 +60,6 @@ function App() {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
-    console.log(data);
     dispatch({ type: "WEATHER_API_DATA", payload: { weatherApiData: data } });
     setLoading(false);
   };
@@ -38,7 +67,8 @@ function App() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${selectcity}&appid=${API_KEY}&units=metric`;
     let response = await fetch(url);
     let data = await response.json();
-    // setweather(data);
+    dispatch({ type: "WEATHER_API_DATA", payload: { weatherApiData: data } });
+    setLoading(false);
     setLoading(false);
   };
 
@@ -57,6 +87,7 @@ function App() {
     } else {
       getWeatherByCity();
     }
+    // changeBgImg();
   }, [selectcity]);
 
   return (
@@ -71,7 +102,7 @@ function App() {
           />
         </div>
       ) : (
-        <div className="container">
+        <div ref={container} className="container">
           <LeftSide />
           <RightSide />
         </div>
