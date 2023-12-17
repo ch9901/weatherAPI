@@ -90,4 +90,6 @@
 .datalist {
   margin-bottom: 30px;
   color: #fff;
+  display: flex;
+  justify-content: space-between;
 }

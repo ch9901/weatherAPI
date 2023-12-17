@@ -1,4 +1,4 @@
-const initialState = { selectcity: "Current Location" };
+const initialState = { selectcity: "" };
 
 function Reducer(state = initialState, action) {
   const { type, payload } = action;
