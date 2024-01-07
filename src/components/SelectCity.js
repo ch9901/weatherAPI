@@ -7,7 +7,6 @@ const SelectCity = () => {
   const selectcity = useSelector((state) => state?.selectcity);
   const buttonOnClick = (e) => {
     const clickedButton = e.target;
-    clickedButton.classList.add("selected");
     dispatch({
       type: "SELECT_CITY",
       payload: { selectcity: clickedButton.innerText },
@@ -17,16 +16,19 @@ const SelectCity = () => {
     <div className="SelectCity">
       <h1 className="selectcity-tit">Select City</h1>
       <div className="citybutton-wrap">
-        <button className="selectcity-city selected">Current Location</button>
-        {city.map((city, index) => (
-          <button
-            onClick={buttonOnClick}
-            className="selectcity-city"
-            key={index}
-          >
-            {city.city}
-          </button>
-        ))}
+        <button onClick={buttonOnClick} className="selectcity-city selected">
+          Current Location
+        </button>
+        {city &&
+          city?.map((city, index) => (
+            <button
+              onClick={buttonOnClick}
+              className="selectcity-city"
+              key={index}
+            >
+              {city.city}
+            </button>
+          ))}
       </div>
     </div>
   );

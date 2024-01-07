@@ -10,40 +10,16 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 function App() {
   const [loading, setLoading] = useState(true);
   const selectcity = useSelector((state) => state?.selectcity);
+  const currentweather = useSelector(
+    (state) => state?.weatherApiData?.weather[0].main
+  );
   const dispatch = useDispatch();
-
   const container = useRef();
-  const changeBgImg = () => {
-    switch (selectcity) {
-      case "seoul":
-        container.classList.add("seoul");
-        container.classList.remove("newyork");
-        container.classList.remove("tokyo");
-        container.classList.remove("beijing");
-        break;
-      case "new york":
-        container.classList.add("newyork");
-        container.classList.remove("seoul");
-        container.classList.remove("tokyo");
-        container.classList.remove("beijing");
-        break;
-      case "tokyo":
-        container.classList.add("tokyo");
-        container.classList.remove("seoul");
-        container.classList.remove("newyork");
-        container.classList.remove("beijing");
-        break;
-      case "beijing":
-        container.classList.add("beijing");
-        container.classList.remove("seoul");
-        container.classList.remove("newyork");
-        container.classList.remove("tokyo");
-        break;
-    }
-  };
 
   const city = async () => {
-    const response = await fetch("http://localhost:3004/city");
+    const response = await fetch(
+      "https://my-json-server.typicode.com/ch9901/weatherAPI/city"
+    );
     const data = await response.json();
     dispatch({ type: "JSON_LOAD", payload: { jsondata: data } });
   };
@@ -69,7 +45,6 @@ function App() {
     let data = await response.json();
     dispatch({ type: "WEATHER_API_DATA", payload: { weatherApiData: data } });
     setLoading(false);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -87,9 +62,9 @@ function App() {
     } else {
       getWeatherByCity();
     }
-    // changeBgImg();
   }, [selectcity]);
 
+  const bgclass = ["container", currentweather, `container_${selectcity}`];
   return (
     <div>
       {loading ? (
@@ -102,7 +77,7 @@ function App() {
           />
         </div>
       ) : (
-        <div ref={container} className="container">
+        <div ref={container} className={bgclass.join(" ")}>
           <LeftSide />
           <RightSide />
         </div>

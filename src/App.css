@@ -1,24 +1,81 @@
 @import url(./font.css);
 
-.container {
+.container.Clouds,
+.container.Clear {
   width: 100%;
   height: 100vh;
-  background: url(./contents/seoul.png) no-repeat;
+  background: url(./contents/Clouds.png) no-repeat;
   background-size: cover;
   display: flex;
   justify-content: space-between;
 }
-.container.seoul {
+.container.Smoke,
+.container.Haze,
+.container.Dust,
+.container.Fog,
+.container.Sand,
+.container.Ash {
+  width: 100%;
+  height: 100vh;
+  background: url(./contents/Smoke.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+}
+.container.Thunderstorm,
+.container.Squall,
+.container.Tornado {
+  width: 100%;
+  height: 100vh;
+  background: url(./contents/Tornado.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+}
+.container.Rain,
+.container.Drizzle,
+.container.Mist {
+  width: 100%;
+  height: 100vh;
+  background: url(./contents/Rain.png) no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+}
+.container_Current {
+  background: #000;
+}
+.container.container_seoul {
   background: url(./contents/seoul.png) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
 }
-.container.newyork {
+.container.container_new {
   background: url(./contents/newyork.png) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
 }
-.container.tokyo {
+.container.container_tokyo {
   background: url(./contents/tokyo.png) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
 }
-.container.beijing {
+.container.container_beijing {
   background: url(./contents/beijing.png) no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
 }
 .container_yetload {
   display: flex;
@@ -33,10 +90,11 @@
   color: #fff;
   font-size: 60px;
   padding: 40px 50px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .RightSide {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   width: 35%;
   height: 100%;
   font-family: "GmarketSans300";
@@ -51,6 +109,7 @@
   font-size: 20px;
   margin-bottom: 8px;
   position: relative;
+  font-family: "GmarketSans500";
 }
 .selectcity-tit::before {
   content: "";
@@ -70,24 +129,20 @@
 .selectcity-city {
   width: 100%;
   height: 50px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.8);
   border: none;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
-  font-family: "GmarketSans500";
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.selectcity-city.selected {
-  background: rgba(255, 255, 255, 0.8);
   font-family: "GmarketSans700";
+  font-size: 18px;
   color: #333;
 }
+
 .datashow-tit {
   font-size: 20px;
   color: #fff;
   position: relative;
   margin-bottom: 40px;
+  font-family: "GmarketSans500";
 }
 .datashow-tit::before {
   content: "";
@@ -103,6 +158,8 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
+  font-family: "GmarketSans300";
+  font-size: 20px;
 }
 .LeftSide {
   display: flex;
@@ -118,7 +175,9 @@
 .LD-selectcity-tit {
   font-size: 50px;
   text-transform: capitalize;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 .LD-selectcity-degree {
   font-size: 100px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
